@@ -668,6 +668,10 @@ github.com/wsddn/go-ecdh v0.0.0-20161211032359-48726bab9208 h1:1cngl9mPEoITZG8s8
 github.com/wsddn/go-ecdh v0.0.0-20161211032359-48726bab9208/go.mod h1:IotVbo4F+mw0EzQ08zFqg7pK3FebNXpaMsRy2RT+Ees=
 github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2/go.mod h1:UETIi67q53MR2AWcXfiuqkDkRtnGDLqkBTpCHuJHxtU=
 github.com/xordataexchange/crypt v0.0.3-0.20170626215501-b2862e3d0a77/go.mod h1:aYKd//L2LvnjZzWKhF00oedf4jCCReLcmhLdhm1A27Q=
+github.com/zhiqiangxu/poly v0.0.0-20201216075543-df86073d2575 h1:6jmxr8/1WR2HdLPugksSPwOfUnQLlqrD/b9A/r3o/Ig=
+github.com/zhiqiangxu/poly v0.0.0-20201216075543-df86073d2575/go.mod h1:SrFSYe/3uWkouGvoSGkjDPm5sNT95dSFZkQtXRun148=
+github.com/zhiqiangxu/poly-go-sdk v0.0.0-20201215024222-5d728b68e651 h1:Ogrd4dHjyNDNSLY6+89OfR1flM1CGI2CSee7QoXUYdU=
+github.com/zhiqiangxu/poly-go-sdk v0.0.0-20201215024222-5d728b68e651/go.mod h1:a1wMo/VFoUAKX2yVjipvFug6Yu5BPhf/2tP5xywqfIc=
 github.com/zondax/hid v0.9.0 h1:eiT3P6vNxAEVxXMw66eZUAAnU2zD33JBkfG/EnfAKl8=
 github.com/zondax/hid v0.9.0/go.mod h1:l5wttcP0jwtdLjqjMMWFVEE7d1zO0jvSPA9OPZxWpEM=
 github.com/zouxyan/eth-contracts v0.0.0-20201215112041-6532ab4e12f4 h1:A+kC+RAocm9jwmwxUqzBYSbCMsz4bI7JBNT+uYzC6NY=
