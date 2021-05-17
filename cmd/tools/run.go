@@ -259,6 +259,9 @@ func main() {
 			}
 		}
 
+		wArr = []string{}
+		pArr = []string{}
+
 		switch chainId {
 		case config.DefConfig.BtcChainID:
 			SyncBtcGenesisHeader(poly, acc)
