@@ -249,18 +249,17 @@ func main() {
 		}
 	case "sync_genesis_header":
 		wArr := strings.Split(pWalletFiles, ",")
-		pArr := strings.Split(pPwds, ",")
+		// pArr := strings.Split(pPwds, ",")
 
 		accArr := make([]*poly_go_sdk.Account, len(wArr))
-		for i, v := range wArr {
-			accArr[i], err = btc.GetAccountByPassword(poly, v, []byte(pArr[i]))
-			if err != nil {
-				panic(fmt.Errorf("failed to decode no%d wallet %s with pwd %s", i, wArr[i], pArr[i]))
-			}
-		}
+		// for i, v := range wArr {
+		// 	accArr[i], err = btc.GetAccountByPassword(poly, v, []byte(pArr[i]))
+		// 	if err != nil {
+		// 		panic(fmt.Errorf("failed to decode no%d wallet %s with pwd %s", i, wArr[i], pArr[i]))
+		// 	}
+		// }
 
 		wArr = []string{}
-		pArr = []string{}
 
 		switch chainId {
 		case config.DefConfig.BtcChainID:
