@@ -39,7 +39,6 @@ require (
 	github.com/status-im/keycard-go v0.0.0-20190424133014-d95853db0f48 // indirect
 	github.com/stretchr/testify v1.7.0
 	github.com/tendermint/tendermint v0.33.9
-	google.golang.org/grpc v1.30.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20200902074654-038fdea0a05b // indirect
 	gopkg.in/yaml.v3 v3.0.0-20200615113413-eeeca48fe776 // indirect
 )
@@ -49,5 +48,7 @@ replace github.com/polynetwork/eth-contracts => github.com/zouxyan/eth-contracts
 replace github.com/polynetwork/poly => github.com/zhiqiangxu/poly v0.0.0-20210315055227-f937bd40dbe9
 
 replace github.com/polynetwork/poly-go-sdk => github.com/zhiqiangxu/poly-go-sdk v0.0.0-20201215024222-5d728b68e651
+
+replace github.com/ethereum/go-ethereum => github.com/zhiqiangxu/go-ethereum v0.0.0-20210517023438-7c8dc501b972
 
 //replace github.com/ontio/ontology => github.com/ontio/ontology v1.11.0

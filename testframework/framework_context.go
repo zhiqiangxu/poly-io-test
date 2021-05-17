@@ -38,6 +38,7 @@ type TestFrameworkContext struct {
 	// invokers
 	EthInvoker *eth.EInvoker
 	BscInvoker *eth.EInvoker
+	OkInvoker  *eth.EInvoker
 	MscInvoker *eth.EInvoker
 	O3Invoker  *eth.EInvoker
 	BtcInvoker *btc.BtcInvoker
@@ -47,7 +48,7 @@ type TestFrameworkContext struct {
 }
 
 //NewTestFrameworkContext return a TestFrameworkContext instance
-func NewTestFrameworkContext(fw *TestFramework, caseArr []TestCase, rcSdk *poly_go_sdk.PolySdk, eInvkr, bscInvkr, mscInvkr, o3Invkr *eth.EInvoker,
+func NewTestFrameworkContext(fw *TestFramework, caseArr []TestCase, rcSdk *poly_go_sdk.PolySdk, eInvkr, bscInvkr, mscInvkr, o3Invkr *eth.EInvoker, okInvkr *eth.EInvoker,
 	btcInvkr *btc.BtcInvoker, ontInvkr *ont.OntInvoker, cmInvoker *cosmos.CosmosInvoker, neoInvoker *neo.NeoInvoker) *TestFrameworkContext {
 	ctx := &TestFrameworkContext{
 		Framework:  fw,
@@ -57,6 +58,7 @@ func NewTestFrameworkContext(fw *TestFramework, caseArr []TestCase, rcSdk *poly_
 		BscInvoker: bscInvkr,
 		MscInvoker: mscInvkr,
 		O3Invoker:  o3Invkr,
+		OkInvoker:  okInvkr,
 		BtcInvoker: btcInvkr,
 		OntInvoker: ontInvkr,
 		CMInvoker:  cmInvoker,

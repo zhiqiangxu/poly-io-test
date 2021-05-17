@@ -59,6 +59,7 @@ type TestFramework struct {
 	bscInvoker    *eth.EInvoker
 	mscInvoker    *eth.EInvoker
 	o3Invoker     *eth.EInvoker
+	okInvoker     *eth.EInvoker
 	btcInvoker    *btc.BtcInvoker
 	ontInvoker    *ont.OntInvoker
 	cosmosInvoker *cosmos.CosmosInvoker
@@ -118,7 +119,7 @@ func (this *TestFramework) runTestList(testCaseList []TestCase, loopNumber int) 
 	this.onTestStart()
 	defer this.onTestFinish(testCaseList)
 
-	ctx := NewTestFrameworkContext(this, testCaseList, this.rcSdk, this.ethInvoker, this.bscInvoker, this.mscInvoker, this.o3Invoker, this.btcInvoker,
+	ctx := NewTestFrameworkContext(this, testCaseList, this.rcSdk, this.ethInvoker, this.bscInvoker, this.mscInvoker, this.o3Invoker, this.okInvoker, this.btcInvoker,
 		this.ontInvoker, this.cosmosInvoker, this.neoInvoker)
 	if this.ontInvoker != nil {
 		go MonitorOnt(ctx)
@@ -132,6 +133,9 @@ func (this *TestFramework) runTestList(testCaseList []TestCase, loopNumber int) 
 	}
 	if this.o3Invoker != nil {
 		go MonitorEthLikeChain(ctx, config.DefConfig.O3ChainID)
+	}
+	if this.okInvoker != nil {
+		go MonitorEthLikeChain(ctx, config.DefConfig.OkChainID)
 	}
 	if this.mscInvoker != nil {
 		go MonitorEthLikeChain(ctx, config.DefConfig.MscChainID)
@@ -191,6 +195,11 @@ func (this *TestFramework) SetBSCInvoker(invoker *eth.EInvoker) {
 //SetO3Invoker instance to test framework
 func (this *TestFramework) SetO3Invoker(invoker *eth.EInvoker) {
 	this.o3Invoker = invoker
+}
+
+//SetOkInvoker instance to test framework
+func (this *TestFramework) SetOkInvoker(invoker *eth.EInvoker) {
+	this.okInvoker = invoker
 }
 
 //SetMSCInvoker instance to test framework

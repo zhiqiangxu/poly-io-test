@@ -1298,6 +1298,25 @@ func MscMxToMsc(ctx *testframework.TestFrameworkContext, status *testframework.C
 	return true
 }
 
+func OktToOK(ctx *testframework.TestFrameworkContext, status *testframework.CaseStatus) bool {
+	for i := uint64(0); i < config.DefConfig.BatchTxNum; i++ {
+		amt := GetRandAmount(config.DefConfig.EthValLimit, 1)
+		for j := uint64(0); j < config.DefConfig.TxNumPerBatch; j++ {
+			if err := SendOKTCrossOK(ctx, status, amt); err != nil {
+				log.Errorf("OktToOK, SendOKTCrossOK error: %v", err)
+				return false
+			}
+		}
+		log.Infof("OktToOK, send %d okt to OK, waiting for confirmation...", amt)
+		WaitUntilClean(status)
+
+		log.Infof("OktToOK, eth all received ( batch: %d )", i)
+	}
+
+	status.SetItSuccess(1)
+	return true
+}
+
 func BnbToBsc(ctx *testframework.TestFrameworkContext, status *testframework.CaseStatus) bool {
 	for i := uint64(0); i < config.DefConfig.BatchTxNum; i++ {
 		amt := GetRandAmount(config.DefConfig.EthValLimit, 1)
