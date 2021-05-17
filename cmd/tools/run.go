@@ -24,7 +24,6 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"io/ioutil"
 
 	"github.com/polynetwork/poly/core/states"
 	"github.com/polynetwork/poly/native/service/governance/neo3_state_manager"
@@ -876,27 +875,27 @@ func SyncMSCGenesisHeader(poly *poly_go_sdk.PolySdk, accArr []*poly_go_sdk.Accou
 func SyncOKGenesisHeader(poly *poly_go_sdk.PolySdk, accArr []*poly_go_sdk.Account) {
 	tool := eth.NewEthTools(config.DefConfig.OKURL)
 
-	rawHex, err := ioutil.ReadFile("../okex-verify/raw.hex")
-	if err != nil {
-		panic(fmt.Sprintf("ReadFile error:%v", err))
-	}
-	raw, err := hex.DecodeString(string(rawHex))
-	if err != nil {
-		panic(fmt.Sprintf("DecodeString error:%v", err))
-	}
+	// rawHex, err := ioutil.ReadFile("../okex-verify/raw.hex")
+	// if err != nil {
+	// 	panic(fmt.Sprintf("ReadFile error:%v", err))
+	// }
+	// raw, err := hex.DecodeString(string(rawHex))
+	// if err != nil {
+	// 	panic(fmt.Sprintf("DecodeString error:%v", err))
+	// }
 
-	txhash, err := poly.Native.Hs.SyncGenesisHeader(config.DefConfig.OkChainID, raw, accArr)
-	if err != nil {
-		if strings.Contains(err.Error(), "had been initialized") {
-			log.Info("msc already synced")
-		} else {
-			panic(fmt.Errorf("SyncMSCGenesisHeader failed: %v", err))
-		}
-	} else {
-		testcase.WaitPolyTx(txhash, poly)
-		log.Infof("successful to sync ok genesis header to poly: (txhash: %s )",
-			txhash.ToHexString())
-	}
+	// txhash, err := poly.Native.Hs.SyncGenesisHeader(config.DefConfig.OkChainID, raw, accArr)
+	// if err != nil {
+	// 	if strings.Contains(err.Error(), "had been initialized") {
+	// 		log.Info("msc already synced")
+	// 	} else {
+	// 		panic(fmt.Errorf("SyncMSCGenesisHeader failed: %v", err))
+	// 	}
+	// } else {
+	// 	testcase.WaitPolyTx(txhash, poly)
+	// 	log.Infof("successful to sync ok genesis header to poly: (txhash: %s )",
+	// 		txhash.ToHexString())
+	// }
 
 	eccmContract, err := eccm_abi.NewEthCrossChainManager(common3.HexToAddress(config.DefConfig.OkEccm), tool.GetEthClient())
 	if err != nil {
